@@ -1,117 +1,88 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
+  Text,
+  Image,
+  TextInput,
+  ScrollView,
+  StyleSheet,
 } from 'react-native';
+import React from 'react';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App: React.FC = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <View style={styles.box}>
+        <Text style={styles.text}>My Favorite Book</Text>
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/564x/f9/1d/05/f91d053ac5d3597eac54cb12a4e07ef4.jpg',
+          }}
+          style={styles.image}
+        />
+        <TextInput placeholder="Type here..." style={styles.input} />
+
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/564x/cd/83/00/cd8300a6708cdfef8eecb04943057d1d.jpg',
+          }}
+          style={styles.image}
+        />
+        <TextInput placeholder="Type here..." style={styles.input} />
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/564x/f3/6d/7c/f36d7cf399b61d6081261163c920382b.jpg',
+          }}
+          style={styles.image}
+        />
+        <TextInput placeholder="Type here..." style={styles.input} />
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/564x/e8/6f/99/e86f99f65555db6530c3594c2254a075.jpg',
+          }}
+          style={styles.image}
+        />
+        <TextInput placeholder="Type here..." style={styles.input} />
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/564x/ee/6d/23/ee6d2360acbe6138a85f643cbe7f8fd7.jpg',
+          }}
+          style={styles.image}
+        />
+        <TextInput placeholder="Type here..." style={styles.input} />
+      </View>
+    </ScrollView>
   );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    padding: 16,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  box: {
+    marginBottom: 20,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    // Gradasi warna teks
+    color: '#006600', // Warna hijau
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
-  highlight: {
-    fontWeight: '700',
+  image: {
+    width: 200,
+    height: 300,
+    resizeMode: 'cover',
+    marginBottom: 10,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 8,
   },
 });
 
